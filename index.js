@@ -27,9 +27,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://rentcollection-frontened.onrender.com",
-  credentials: true,
+ 
+  origin: [
+    "http://localhost:5173",
+    "https://rentcollection-frontened.onrender.com"
+  ],
+  credentials: true
 }));
+ 
 
 app.use("/api/user", authRouter);
 app.use("/api/tenant",tenantrouter)
